@@ -10,6 +10,12 @@ get '/' do
   process_page 'index'
 end
 
-get '/:name' do
+get '/:name.html' do
+  # TODO Check if an ERB exists with the name, else redirect to a catch-all page
   process_page params['name']
+end
+
+get '/:name' do
+  # TODO Check if an ERB exists with the name, else redirect to a catch-all page
+  redirect params['name']+'.html'
 end
